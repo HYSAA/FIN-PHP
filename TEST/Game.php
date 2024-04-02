@@ -1,7 +1,5 @@
 <?php
-
 include 'Pokemon.php';
-
 class Game {
     protected $player;
     protected $opponent;
@@ -16,15 +14,15 @@ class Game {
     }
 
     protected function playerMove() {
-        $move = rand(1, 3); // 1: Tackle, 2: Skill Attack, 3: Regenerate Health
+        $move = rand(1, 3); 
         switch ($move) {
             case 1:
                 echo "{$this->player->getName()} uses tackle.\n";
-                $this->player->tackle($this->opponent);
+                $this->player->attack($this->opponent);
                 break;
             case 2:
                 echo "{$this->player->getName()} uses skill attack.\n";
-                $this->player->skillAttack($this->opponent);
+                $this->player->attack($this->opponent);
                 break;
             case 3:
                 echo "{$this->player->getName()} regenerates health.\n";
@@ -35,46 +33,18 @@ class Game {
     }
 
     protected function opponentMove() {
-        $move = rand(1, 2); // 1: Tackle, 2: Skill Attack
+        $move = rand(1, 2); 
         switch ($move) {
             case 1:
                 echo "{$this->opponent->getName()} uses tackle.\n";
-                $this->opponent->tackle($this->player);
+                $this->opponent->attack($this->player);
                 break;
             case 2:
                 echo "{$this->opponent->getName()} uses skill attack.\n";
-                $this->opponent->skillAttack($this->player);
+                $this->opponent->attack($this->player);
                 break;
         }
         return $this;
     }
 }
-
-// Example Usage
-echo "Choose your starter Pokemon (Bulbasaur, Charmander, Squirtle): ";
-$playerChoice = trim(fgets(STDIN));
-switch ($playerChoice) {
-    case 'Bulbasaur':
-        $player = new Bulbasaur();
-        break;
-    case 'Charmander':
-        $player = new Charmander();
-        break;
-    case 'Squirtle':
-        $player = new Squirtle();
-        break;
-    default:
-        echo "Invalid choice!";
-        exit;
-}
-
-$opponentChoices = [new Bulbasaur(), new Charmander(), new Squirtle()];
-$opponent = $opponentChoices[array_rand($opponentChoices)];
-
-$game = new Game($player, $opponent);
-
-for ($i = 1; $i <= 5; $i++) {
-    echo "Round {$i}\n";
-    $game->playRound();
-    echo "\n";
-}
+?>
