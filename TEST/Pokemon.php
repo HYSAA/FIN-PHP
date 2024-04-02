@@ -35,17 +35,33 @@ class Bulbasaur extends Pokemon {
     public function __construct() {
         parent::__construct('Bulbasaur', 100);
     }
+    public function regenerateHealth() {
+        $amount = rand(10, 20);
+        $this->healthPoints += $amount;
+        echo "{$this->name} regenerates {$amount} health.\n";
+    }
 }
 
 class Charmander extends Pokemon {
     public function __construct() {
         parent::__construct('Charmander', 100);
     }
+    public function regenerateHealth() {
+        $amount = rand(10, 20);
+        $this->healthPoints += $amount;
+        echo "{$this->name} regenerates {$amount} health.\n";
+    }
 }
 
 class Squirtle extends Pokemon {
     public function __construct() {
         parent::__construct('Squirtle', 100);
+    }
+
+    public function regenerateHealth() {
+        $amount = rand(10, 20);
+        $this->healthPoints += $amount;
+        echo "{$this->name} regenerates {$amount} health.\n";
     }
 }
 ?>

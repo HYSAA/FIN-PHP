@@ -1,5 +1,6 @@
 <?php
 include 'Pokemon.php';
+
 class Game {
     protected $player;
     protected $opponent;
@@ -14,7 +15,7 @@ class Game {
     }
 
     protected function playerMove() {
-        $move = rand(1, 3); 
+        $move = rand(1, 3); // 1: Tackle, 2: Skill Attack, 3: Regenerate Health
         switch ($move) {
             case 1:
                 echo "{$this->player->getName()} uses tackle.\n";
@@ -33,7 +34,7 @@ class Game {
     }
 
     protected function opponentMove() {
-        $move = rand(1, 2); 
+        $move = rand(1, 2); // 1: Tackle, 2: Skill Attack
         switch ($move) {
             case 1:
                 echo "{$this->opponent->getName()} uses tackle.\n";

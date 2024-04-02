@@ -5,8 +5,6 @@ echo "Choose your starter Pokemon (Bulbasaur, Charmander, Squirtle): ";
 $handle = fopen('php://stdin', 'r');
 $playerChoice = trim(fgets($handle));
 fclose($handle);
-// $playerChoice = readline("Choose your starter Pokemon (Bulbasaur, Charmander, Squirtle): ");
-
 
 switch ($playerChoice) {
     case 'Bulbasaur':
